@@ -1,0 +1,537 @@
+/* Mikael Eriksson - Kreativ Webbplats - Inspirerad av hans konstverk */
+
+:root {
+  /* Färgpalett från Mikaels konstverk */
+  --primary-blue: #2E86C1;
+  --electric-blue: #3498DB;
+  --deep-blue: #1B4F72;
+  --vibrant-yellow: #F1C40F;
+  --golden-yellow: #F39C12;
+  --neon-green: #2ECC71;
+  --graffiti-red: #E74C3C;
+  --urban-orange: #E67E22;
+  --dark-purple: #6C3483;
+  --street-black: #1C2833;
+  --concrete-gray: #85929E;
+  --white: #FFFFFF;
+  
+  /* Gradients som Mikaels verk */
+  --street-gradient: linear-gradient(135deg, var(--primary-blue), var(--deep-blue), var(--vibrant-yellow));
+  --urban-gradient: linear-gradient(45deg, var(--electric-blue), var(--neon-green), var(--golden-yellow));
+  --graffiti-gradient: linear-gradient(90deg, var(--graffiti-red), var(--urban-orange), var(--vibrant-yellow));
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial Black', 'Impact', sans-serif;
+  background: var(--street-black);
+  color: var(--white);
+  overflow-x: hidden;
+  cursor: crosshair;
+}
+
+/* Street Art Typography */
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 0px var(--street-black), 
+               -1px -1px 0px var(--vibrant-yellow),
+               1px 1px 0px var(--primary-blue);
+  position: relative;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  background: var(--graffiti-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: graffiti-flicker 3s ease-in-out infinite alternate;
+}
+
+@keyframes graffiti-flicker {
+  0% { filter: hue-rotate(0deg) brightness(1); }
+  50% { filter: hue-rotate(180deg) brightness(1.2); }
+  100% { filter: hue-rotate(360deg) brightness(0.9); }
+}
+
+/* Creative Navigation */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--street-gradient);
+  z-index: 1000;
+  padding: 1rem 0;
+  backdrop-filter: blur(10px);
+  border-bottom: 4px solid var(--vibrant-yellow);
+  box-shadow: 0 0 30px rgba(241, 196, 15, 0.5);
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--vibrant-yellow);
+  text-decoration: none;
+  text-shadow: 2px 2px 0px var(--street-black);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.logo::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--neon-green);
+  transition: width 0.3s ease;
+}
+
+.logo:hover::after {
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid transparent;
+  border-radius: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--urban-gradient);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+nav a:hover::before {
+  left: 0;
+}
+
+nav a:hover {
+  border-color: var(--vibrant-yellow);
+  transform: scale(1.05);
+}
+
+/* Main Content Area with Scroll Effects */
+main {
+  margin-top: 120px;
+  position: relative;
+}
+
+/* Parallax Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--street-gradient);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 80%, var(--vibrant-yellow) 2px, transparent 2px),
+    radial-gradient(circle at 80% 20%, var(--neon-green) 2px, transparent 2px);
+  background-size: 50px 50px;
+  opacity: 0.3;
+  animation: urban-drift 20s linear infinite;
+}
+
+@keyframes urban-drift {
+  0% { transform: translateX(0) translateY(0); }
+  100% { transform: translateX(-50px) translateY(-50px); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  padding: 2rem;
+}
+
+.hero h1 {
+  margin-bottom: 2rem;
+  animation: title-entrance 2s ease-out;
+}
+
+@keyframes title-entrance {
+  0% { 
+    opacity: 0; 
+    transform: translateY(100px) rotateX(90deg); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0) rotateX(0); 
+  }
+}
+
+.hero-subtitle {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  margin-bottom: 3rem;
+  color: var(--vibrant-yellow);
+  text-shadow: 2px 2px 0px var(--street-black);
+  animation: subtitle-slide 2s ease-out 0.5s both;
+}
+
+@keyframes subtitle-slide {
+  0% { 
+    opacity: 0; 
+    transform: translateX(-100px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateX(0); 
+  }
+}
+
+/* Scroll-Triggered Animations */
+.scroll-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 2rem;
+  position: relative;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 1s ease;
+}
+
+.scroll-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Morphing Background Effect */
+.morph-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: var(--street-gradient);
+  transition: all 0.5s ease;
+}
+
+/* Creative Card System */
+.art-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 3px solid var(--vibrant-yellow);
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 2rem 0;
+  backdrop-filter: blur(15px);
+  box-shadow: 
+    0 0 30px rgba(241, 196, 15, 0.3),
+    inset 0 0 30px rgba(52, 152, 219, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.art-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--urban-gradient);
+  z-index: -1;
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.art-card:hover::before {
+  opacity: 1;
+}
+
+.art-card:hover {
+  transform: translateY(-10px) rotateX(5deg);
+  border-color: var(--neon-green);
+}
+
+/* Image Gallery with Effects */
+.artwork-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 4rem 0;
+}
+
+.artwork-item {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.artwork-item:hover {
+  transform: scale(1.05) rotateY(5deg);
+  box-shadow: 0 20px 50px rgba(241, 196, 15, 0.4);
+}
+
+.artwork-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: all 0.4s ease;
+}
+
+.artwork-item:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.2) contrast(1.1);
+}
+
+.artwork-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--graffiti-gradient);
+  color: var(--white);
+  padding: 1rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.artwork-item:hover .artwork-overlay {
+  transform: translateY(0);
+}
+
+/* Timeline with Street Style */
+.timeline {
+  position: relative;
+  margin: 4rem 0;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: var(--urban-gradient);
+  transform: translateX(-50%);
+  border-radius: 3px;
+  box-shadow: 0 0 20px var(--vibrant-yellow);
+}
+
+.timeline-item {
+  position: relative;
+  margin: 3rem 0;
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 0.8s ease;
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.timeline-item:nth-child(even) {
+  transform: translateX(100px);
+}
+
+.timeline-item:nth-child(even).visible {
+  transform: translateX(0);
+}
+
+.timeline-content {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  backdrop-filter: blur(15px);
+  border: 2px solid var(--vibrant-yellow);
+  box-shadow: 0 0 30px rgba(52, 152, 219, 0.3);
+}
+
+.timeline-year {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--graffiti-gradient);
+  color: var(--white);
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-weight: 900;
+  font-size: 1.2rem;
+  text-shadow: 2px 2px 0px var(--street-black);
+  z-index: 10;
+  border: 3px solid var(--vibrant-yellow);
+  box-shadow: 0 0 20px rgba(241, 196, 15, 0.5);
+}
+
+/* Footer with Street Art Style */
+footer {
+  background: var(--street-black);
+  border-top: 4px solid var(--vibrant-yellow);
+  padding: 3rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(45deg, transparent 40%, var(--primary-blue) 40%, var(--primary-blue) 60%, transparent 60%),
+    linear-gradient(-45deg, transparent 40%, var(--vibrant-yellow) 40%, var(--vibrant-yellow) 60%, transparent 60%);
+  background-size: 20px 20px;
+  opacity: 0.1;
+  animation: footer-drift 15s linear infinite;
+}
+
+@keyframes footer-drift {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-20px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  nav a {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  main {
+    margin-top: 160px;
+  }
+  
+  .hero {
+    height: 80vh;
+    padding: 2rem 1rem;
+  }
+  
+  .timeline::before {
+    left: 30px;
+  }
+  
+  .timeline-item:nth-child(odd) .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content {
+    margin-left: 80px;
+    margin-right: 0;
+  }
+  
+  .timeline-year {
+    left: 30px;
+    transform: translateY(-50%);
+  }
+  
+  .artwork-gallery {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* Advanced Scroll Effects */
+.parallax-element {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Loading Animation */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--street-gradient);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+.loading-screen.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-art {
+  width: 100px;
+  height: 100px;
+  border: 5px solid var(--vibrant-yellow);
+  border-top: 5px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
