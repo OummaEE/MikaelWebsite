@@ -19,6 +19,7 @@ class ElegantWebsite {
     this.setupImageLazyLoading();
     this.setupParallaxEffects();
     this.setupHeaderBehavior();
+    this.setupMobileNavigation();
   }
 
   // Scroll-triggered animations
@@ -125,6 +126,72 @@ class ElegantWebsite {
 
       lastScrollTop = scrollTop;
     });
+  }
+
+  // Mobile navigation functionality
+  setupMobileNavigation() {
+    const mobileToggle = document.querySelector('.mobile-nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const body = document.body;
+
+    if (!mobileToggle || !navMenu) return;
+
+    // Toggle mobile menu
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = navMenu.classList.contains('mobile-open');
+      
+      if (isOpen) {
+        this.closeMobileMenu();
+      } else {
+        this.openMobileMenu();
+      }
+    });
+
+    // Close menu when clicking on links
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (navMenu.classList.contains('mobile-open')) {
+          this.closeMobileMenu();
+        }
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (navMenu.classList.contains('mobile-open') && 
+          !navMenu.contains(e.target) && 
+          !mobileToggle.contains(e.target)) {
+        this.closeMobileMenu();
+      }
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('mobile-open')) {
+        this.closeMobileMenu();
+      }
+    });
+  }
+
+  openMobileMenu() {
+    const mobileToggle = document.querySelector('.mobile-nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const body = document.body;
+
+    mobileToggle.classList.add('active');
+    navMenu.classList.add('mobile-open');
+    body.style.overflow = 'hidden'; // Prevent background scrolling
+  }
+
+  closeMobileMenu() {
+    const mobileToggle = document.querySelector('.mobile-nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const body = document.body;
+
+    mobileToggle.classList.remove('active');
+    navMenu.classList.remove('mobile-open');
+    body.style.overflow = ''; // Restore scrolling
   }
 }
 

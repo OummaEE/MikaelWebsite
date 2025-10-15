@@ -13,6 +13,8 @@
     <nav class="nav">
         <div class="nav-container">
             <a href="./" class="logo">Mikael Eriksson</a>
+            
+            <!-- Desktop Navigation -->
             <div class="nav-menu">
                 <a href="./" class="nav-link">Hem</a>
                 <a href="./biografi.html" class="nav-link">Biografi</a>
@@ -21,20 +23,40 @@
                 <a href="./konst.html" class="nav-link">Konst</a>
                 <a href="./kontakt.html" class="nav-link">Kontakt</a>
             </div>
+            
+            <!-- Mobile Navigation Toggle -->
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </div>
     </nav>
 
     <main>
         <!-- Hero Section -->
         <section class="hero">
-            <div class="hero-content">
-                <p class="hero-subtitle text-subheading">Konstnär från Flen</p>
-                <h1 class="hero-title text-hero">Mikael Eriksson</h1>
-                <p class="hero-description text-body">
-                    En konstnärlig resa från Stockholm via Berlin till Flen. Utforska verken från en av Sveriges mest 
-                    internationellt erfarna konstnärer som skapar parallella världar genom måleri och filosofi.
-                </p>
-                <a href="./konst.html" class="hero-cta">Utforska konstverken</a>
+            <div class="hero-layout">
+                <div class="hero-content">
+                    <p class="hero-subtitle text-subheading">Konstnär från Flen</p>
+                    <h1 class="hero-title text-hero">Mikael Eriksson</h1>
+                    <p class="hero-description text-body">
+                        En konstnärlig resa från Stockholm via Berlin till Flen. Utforska verken från en av Sveriges mest 
+                        internationellt erfarna konstnärer som skapar parallella världar genom måleri och filosofi.
+                    </p>
+                    <a href="./konst.html" class="hero-cta">Utforska konstverken</a>
+                </div>
+                
+                <div class="hero-portrait">
+                    <div class="portrait-frame">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face" 
+                             alt="Mikael Eriksson - Konstnär" 
+                             class="portrait-image" />
+                        <div class="portrait-overlay">
+                            <p class="portrait-caption">Berlin • Stockholm • Flen</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
