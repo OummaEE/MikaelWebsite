@@ -34,9 +34,12 @@ Swedish artist from Flen with an international career spanning five decades:
 
 - **Framework:** Static HTML/CSS/JS
 - **Styling:** Custom CSS with Moooi-inspired design system
+- **Navigation:** Responsive hamburger menu for mobile devices  
+- **Layout:** CSS Grid and Flexbox for elegant portrait integration
 - **Typography:** Inter font with elegant hierarchy
 - **Colors:** Blue (#1a365d) + Yellow (#d69e2e) from Mikael's artwork
-- **Hosting:** Vercel (static deployment)
+- **Interactions:** Vanilla JavaScript with smooth animations
+- **Hosting:** Vercel (static deployment with automatic GitHub integration)
 
 ## 📁 File Structure
 
@@ -57,9 +60,12 @@ Swedish artist from Flen with an international career spanning five decades:
 ## ✨ Design Features
 
 - **Elegant Moooi-inspired design** with clean typography
+- **Integrated portrait hero section** with organic photo placement
+- **Responsive hamburger menu** for mobile navigation
 - **Real artwork integration** with hover overlays
-- **Responsive design** for all devices
+- **Full responsive design** optimized for all devices
 - **Smooth animations** and scroll effects
+- **Mobile-first navigation** with overlay menu system
 - **Swedish content** for local audience
 - **Professional presentation** suitable for galleries and press
 
