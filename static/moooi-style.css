@@ -30,6 +30,80 @@ body {
   background-color: var(--pure-white);
   line-height: 1.6;
   overflow-x: hidden;
+  padding-top: 90px; /* Space for fixed navigation */
+}
+
+/* Navigation Styles */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--pure-white);
+  border-bottom: 1px solid var(--border-light);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--text-dark);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  color: var(--accent-blue);
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 0.95rem;
+  position: relative;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary-blue);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-blue);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
 }
 
 /* Typography System */
